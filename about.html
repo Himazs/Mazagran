@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>About Us - Mazagran Cafe Espresso Bar</title>
+   <meta name="keywords" content="Mazagran Cafe, About Us, Dunedin Coffee, Espresso Bar, Micro-Roastery, Dunedin Cafe, Traditional Coffee Machinery">
+   <meta name="description" content="Discover the story behind Mazagran Cafe Espresso Bar in Dunedin. Passionate about traditional machinery, in-house roasting, and exceptional handcrafted espresso.">
+   <meta name="author" content="Mazagran Cafe">
+   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+   <link rel="icon" href="images/fevicon.png" type="image/gif" />
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: 'Poppins', sans-serif; background: #1A0A00; color: #F5ECD7; }
+
+      /* NAV */
+      .header_section { background: #0D0500; border-bottom: 1px solid #2A1200; position: sticky; top: 0; z-index: 999; }
+      .header_bg { background: #0D0500 !important; }
+      .navbar { padding: 16px 0; }
+      .navbar-brand img { height: 100px; filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(10deg); }
+      .nav-item .nav-link { color: #C9B89A !important; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 16px !important; transition: color 0.2s; }
+      .nav-item .nav-link:hover, .nav-item.active .nav-link { color: #D4935A !important; }
+      .login_bt ul { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; align-items: center; }
+      .login_bt ul li a { color: #C9B89A; font-size: 12px; letter-spacing: 1px; text-decoration: none; }
+      .login_bt ul li:first-child a { background: #D4935A; color: #0D0500; padding: 8px 20px; border-radius: 2px; font-weight: 500; text-transform: uppercase; }
+      .login_bt ul li:first-child a:hover { background: #C07A45; }
+      .navbar-toggler { border-color: #3D1F00; }
+      .navbar-toggler-icon { filter: invert(1); }
+      .bg-light { background: transparent !important; }
+
+      /* PAGE HEADER BAND */
+      .page_header { background: url('images/banner-bg.png') center center / cover no-repeat; position: relative; padding: 60px 0; text-align: center; }
+      .page_header::before { content: ''; position: absolute; inset: 0; background: rgba(10,4,0,0.75); }
+      .page_header .container { position: relative; z-index: 1; }
+      .page_header_label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #D4935A; margin-bottom: 10px; }
+      .page_header_title { font-size: 38px; font-weight: 600; color: #F5ECD7; line-height: 1.2; }
+
+      /* LAYOUT PADDING */
+      .layout_padding { padding-top: 72px; padding-bottom: 72px; }
+
+      /* ABOUT — STORY SECTION */
+      .about_section { padding: 72px 0; border-bottom: 1px solid #2A1200; }
+      .about_taital { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #D4935A; margin-bottom: 8px; font-weight: 400; }
+      .about_taital_1 { font-size: 30px; font-weight: 500; color: #F5ECD7; margin-bottom: 20px; line-height: 1.3; }
+      .about_text { font-size: 14px; color: #A08060; line-height: 1.9; margin-bottom: 16px; }
+      .about_img { width: 100%; border-radius: 4px; border: 1px solid #2A1200; object-fit: cover; }
+
+      /* CRAFT SECTION */
+      .craft_section { padding: 72px 0; background: #0D0500; border-bottom: 1px solid #2A1200; }
+      .craft_section .section_label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #D4935A; margin-bottom: 8px; font-weight: 400; }
+      .craft_section .section_title { font-size: 30px; font-weight: 500; color: #F5ECD7; margin-bottom: 12px; line-height: 1.3; }
+      .craft_section .section_sub { font-size: 14px; color: #A08060; line-height: 1.9; max-width: 720px; margin: 0 auto 52px auto; }
+      .craft_card { background: #140700; border: 1px solid #2A1200; border-radius: 4px; overflow: hidden; height: 100%; }
+      .craft_card_img { width: 100%; height: 220px; object-fit: cover; display: block; border-bottom: 1px solid #2A1200; }
+      .craft_card_body { padding: 22px 20px; }
+      .craft_card_title { font-size: 15px; font-weight: 500; color: #F5ECD7; margin-bottom: 8px; }
+      .craft_card_text { font-size: 13px; color: #7A6050; line-height: 1.7; }
+      .craft_footer { font-size: 14px; color: #A08060; line-height: 1.9; max-width: 820px; margin: 48px auto 0; text-align: center; }
+
+      /* FOOTER */
+      .footer_section { background: #0D0500; padding: 48px 0; border-top: 1px solid #2A1200; }
+      .margin_top90 { margin-top: 0; }
+      .footer_social_icon ul { list-style: none; display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; padding: 0; }
+      .footer_social_icon ul li a { width: 36px; height: 36px; border: 1px solid #2A1200; border-radius: 2px; display: flex; align-items: center; justify-content: center; color: #A08060; text-decoration: none; transition: all 0.2s; }
+      .footer_social_icon ul li a:hover { border-color: #D4935A; color: #D4935A; }
+      .location_text ul { list-style: none; display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 28px; padding: 0; }
+      .location_text ul li a { color: #7A6050; font-size: 13px; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+      .location_text ul li a i { color: #D4935A; }
+      .location_text ul li a:hover { color: #C9B89A; }
+      .form-group { position: relative; max-width: 360px; margin: 0 auto; }
+      .update_mail { background: #0D0500; border: 1px solid #2A1200; border-radius: 2px; color: #C9B89A; font-size: 13px; padding: 12px 56px 12px 16px; font-family: 'Poppins', sans-serif; outline: none; width: 100%; resize: none; height: 46px !important; overflow: hidden; }
+      .update_mail::placeholder { color: #5A3520; }
+      .subscribe_bt { position: absolute; right: 0; top: 0; height: 100%; }
+      .subscribe_bt a { display: flex; align-items: center; justify-content: center; background: #D4935A; color: #0D0500; width: 44px; height: 100%; border-radius: 0 2px 2px 0; text-decoration: none; }
+      .subscribe_bt a:hover { background: #C07A45; }
+
+      /* COPYRIGHT */
+      .copyright_section { background: #080200; padding: 16px 0; }
+      .copyright_text { text-align: center; font-size: 11px; color: #3D1F00; letter-spacing: 1px; margin: 0; }
+      .copyright_text a { color: #5A3520; text-decoration: none; }
+
+      @media (max-width: 768px) {
+         .page_header_title { font-size: 26px; }
+         .about_taital_1, .craft_section .section_title { font-size: 22px; }
+         .about_img { margin-top: 28px; }
+      }
+   </style>
+</head>
+<body>
+
+   <!-- HEADER -->
+   <div class="header_section header_bg">
+      <div class="container">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Mazagran Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                  <li class="nav-item"><a class="nav-link" href="coffees.html">Coffees</a></li>
+                  <li class="nav-item"><a class="nav-link" href="shop.html">Menu</a></li>
+                  <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                  <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+               </ul>
+              
+            </div>
+         </nav>
+      </div>
+   </div>
+   <!-- HEADER END -->
+
+   <!-- PAGE HEADER BAND -->
+   <div class="page_header">
+      <div class="container">
+         <p class="page_header_label">Mazagran Cafe</p>
+         <h1 class="page_header_title">About Us</h1>
+      </div>
+   </div>
+
+   <!-- STORY SECTION -->
+   <div class="about_section layout_padding">
+      <div class="container">
+         <div class="about_section_2">
+            <div class="row align-items-center">
+               <div class="col-md-6">
+                  <div class="about_taital_box">
+                     <h2 class="about_taital">Our Story</h2>
+                     <h3 class="about_taital_1">Dunedin's Living Coffee Institution</h3>
+                     <p class="about_text">At Mazagran Cafe Espresso Bar, coffee isn't treated as a modern, automated transaction — it's handled as an art form. Nestled tightly into the cultural fabric of Dunedin at 36 Moray Place, our warm, sensory-filled space welcomes anyone searching for an authentic coffee experience. We are fiercely independent and deeply invested in the tactile, old-school rituals of preparation.</p>
+                     <p class="about_text">Step inside and you will immediately meet the comforting aroma of beans roasting over open flame. We deliberately cultivate an intimate environment where music spins, conversation flows effortlessly, and patrons can watch the entire process unfold from raw green bean to beautifully extracted espresso shot.</p>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="image_iman"><img src="images/mazagran-1.png" class="about_img" alt="Inside Mazagran Cafe Atmosphere"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- STORY SECTION END -->
+
+   <!-- CRAFT SECTION -->
+   <div class="craft_section">
+      <div class="container">
+         <div class="text-center">
+            <p class="section_label">Our Craft</p>
+            <h2 class="section_title">The Craft Behind the Cup</h2>
+            <p class="about_taital_1" style="font-size:18px; color:#A08060; font-weight:400; margin-bottom:12px;">Honoring Traditional Machinery</p>
+            <p class="section_sub">We reject the modern trend of computerized, push-button coffee making. Instead, Mazagran relies purely on sensory feedback and beautifully preserved, traditional mechanical hardware to coax out the finest properties of every single bean.</p>
+         </div>
+         <div class="row">
+            <div class="col-md-4 mb-4">
+               <div class="craft_card">
+                  <img src="images/mazagran-4.png" alt="Our Traditional Coffee Roaster" class="craft_card_img">
+                  <div class="craft_card_body">
+                     <h3 class="craft_card_title">Vintage In-House Roaster</h3>
+                     <p class="craft_card_text">Where the magic begins. We roast manually by sight, smell, and sound right in front of your eyes.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4 mb-4">
+               <div class="craft_card">
+                  <img src="images/mazagran-2.png" alt="Traditional Lever Espresso Machinery" class="craft_card_img">
+                  <div class="craft_card_body">
+                     <h3 class="craft_card_title">Mechanical Lever Extraction</h3>
+                     <p class="craft_card_text">Our classic manual machinery grants total tactile control over pressure profiles for a perfect crema.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4 mb-4">
+               <div class="craft_card">
+                  <img src="images/mazagran-3.png" alt="Mazagran Pastry Cabinet and Bar" class="craft_card_img">
+                  <div class="craft_card_body">
+                     <h3 class="craft_card_title">The Glass Cabinet</h3>
+                     <p class="craft_card_text">Freshly baked traditional slices, cakes, and tarts prepared fresh daily to accompany your brew.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <p class="craft_footer">By adjusting variables with physical gears, manual handles, and keen human intuition, our baristas craft an experience that digital automation simply cannot copy. It is demanding, precise, and wonderfully old-fashioned work — and we wouldn't have it any other way.</p>
+      </div>
+   </div>
+   <!-- CRAFT SECTION END -->
+
+   <!-- FOOTER -->
+   <div class="footer_section layout_padding margin_top90">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="footer_social_icon">
+                  <ul>
+                     <li><a href="https://www.facebook.com/mazagrancafe/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                     <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                     <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                  </ul>
+               </div>
+               <div class="location_text">
+                  <ul>
+                     <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="padding_left_10">36 Moray Place, Dunedin, New Zealand, 9016</span></a></li>
+                     <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10">hello@mazagran.co.nz</span></a></li>
+                  </ul>
+               </div>
+               <div class="form-group">
+                  <textarea class="update_mail" placeholder="Join our newsletter" rows="1" name="Your Email"></textarea>
+                  <div class="subscribe_bt"><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- FOOTER END -->
+
+   <div class="copyright_section">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <p class="copyright_text">2024 All Rights Reserved. Mazagran Cafe Espresso Bar.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <script src="js/jquery.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.0.0.min.js"></script>
+   <script src="js/plugin.js"></script>
+   <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+   <script src="js/custom.js"></script>
+</body>
+</html>

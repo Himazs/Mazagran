@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Blog — Mazagran Cafe Espresso Bar</title>
+   <meta name="keywords" content="Mazagran Blog, Coffee History, Espresso, Cafe Culture, Dunedin Coffee, Roasting">
+   <meta name="description" content="Stories, guides, and insights from the Mazagran roastery — coffee history, cafe culture, and what makes great espresso.">
+   <meta name="author" content="Mazagran Cafe">
+   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+   <link rel="icon" href="images/fevicon.png" type="image/gif" />
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: 'Poppins', sans-serif; background: #1A0A00; color: #F5ECD7; }
+
+      /* NAV */
+      .header_section { background: #0D0500; border-bottom: 1px solid #2A1200; position: sticky; top: 0; z-index: 999; }
+      .navbar { padding: 16px 0; }
+      .navbar-brand img { height: 100px; filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(10deg); }
+      .nav-item .nav-link { color: #C9B89A !important; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 16px !important; transition: color 0.2s; }
+      .nav-item .nav-link:hover, .nav-item.active .nav-link { color: #D4935A !important; }
+      .navbar-toggler { border-color: #3D1F00; }
+      .navbar-toggler-icon { filter: invert(1); }
+
+      /* PAGE HERO */
+      .page_header { background: url('images/banner-bg.png') center center / cover no-repeat; position: relative; padding: 72px 0; text-align: center; }
+      .page_header::before { content: ''; position: absolute; inset: 0; background: rgba(10,4,0,0.78); }
+      .page_header .container { position: relative; z-index: 1; }
+      .page_label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #D4935A; margin-bottom: 12px; font-weight: 400; }
+      .page_title { font-size: 42px; font-weight: 600; color: #F5ECD7; line-height: 1.2; margin-bottom: 12px; }
+      .page_sub { font-size: 15px; color: #A08060; max-width: 520px; margin: 0 auto; line-height: 1.8; }
+
+      /* LAYOUT */
+      .layout_padding { padding-top: 72px; padding-bottom: 72px; }
+
+      /* BLOG GRID */
+      .blog_grid_section { padding: 72px 0; }
+
+      /* Featured Post */
+      .featured_post { position: relative; border-radius: 8px; overflow: hidden; border: 1px solid #2A1200; margin-bottom: 56px; }
+      .featured_post_img { width: 100%; height: 420px; object-fit: cover; display: block; }
+      .featured_overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(5,2,0,0.97) 0%, transparent 100%); padding: 40px 36px 36px; }
+      .featured_tag { display: inline-block; background: #D4935A; color: #0D0500; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border-radius: 2px; font-weight: 600; margin-bottom: 12px; }
+      .featured_title { font-size: 28px; font-weight: 600; color: #F5ECD7; margin-bottom: 10px; line-height: 1.3; }
+      .featured_excerpt { font-size: 14px; color: #C9B89A; line-height: 1.8; max-width: 640px; margin-bottom: 18px; }
+      .featured_meta { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #5A3520; }
+      .featured_meta span { color: #7A6050; }
+
+      /* Post Cards */
+      .post_card { background: #140700; border: 1px solid #2A1200; border-radius: 6px; overflow: hidden; margin-bottom: 28px; transition: border-color 0.2s, transform 0.2s; height: 100%; display: flex; flex-direction: column; }
+      .post_card:hover { border-color: #3D1F00; transform: translateY(-3px); }
+      .post_card_img { width: 100%; height: 220px; object-fit: cover; display: block; }
+      .post_card_body { padding: 24px 22px; flex-grow: 1; display: flex; flex-direction: column; }
+      .post_tag { display: inline-block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #D4935A; border: 1px solid #3D1F00; padding: 4px 10px; border-radius: 2px; margin-bottom: 14px; }
+      .post_title { font-size: 17px; font-weight: 500; color: #F5ECD7; margin-bottom: 12px; line-height: 1.4; }
+      .post_excerpt { font-size: 13px; color: #7A6050; line-height: 1.8; flex-grow: 1; margin-bottom: 20px; }
+      .post_footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #2A1200; padding-top: 14px; }
+      .post_date { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #5A3520; }
+      .post_read_link { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #D4935A; text-decoration: none; border-bottom: 1px solid #3D1F00; padding-bottom: 2px; transition: border-color 0.2s; }
+      .post_read_link:hover { border-color: #D4935A; color: #D4935A; }
+
+      /* Article Body */
+      .article_section { padding: 72px 0; border-top: 1px solid #2A1200; }
+      .article_section + .article_section { padding-top: 56px; }
+      .article_wrapper { max-width: 780px; }
+      .article_tag { display: inline-block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #D4935A; border: 1px solid #3D1F00; padding: 4px 10px; border-radius: 2px; margin-bottom: 16px; }
+      .article_title { font-size: 26px; font-weight: 600; color: #F5ECD7; margin-bottom: 10px; line-height: 1.3; }
+      .article_meta { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #5A3520; margin-bottom: 24px; }
+      .article_hero { width: 100%; border-radius: 6px; border: 1px solid #2A1200; object-fit: cover; height: 340px; margin-bottom: 28px; display: block; }
+      .article_body p { font-size: 14px; color: #A08060; line-height: 1.95; margin-bottom: 18px; }
+      .article_body h4 { font-size: 16px; font-weight: 500; color: #F5ECD7; margin-bottom: 12px; margin-top: 28px; }
+      .article_body ul { padding-left: 20px; margin-bottom: 18px; }
+      .article_body ul li { font-size: 14px; color: #A08060; line-height: 1.95; margin-bottom: 6px; }
+      .article_divider { border: none; border-top: 1px solid #2A1200; margin: 64px 0; }
+
+      /* SIDEBAR */
+      .sidebar_box { background: #140700; border: 1px solid #2A1200; border-radius: 6px; padding: 28px 24px; margin-bottom: 28px; }
+      .sidebar_title { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #D4935A; margin-bottom: 20px; font-weight: 500; border-bottom: 1px solid #2A1200; padding-bottom: 12px; }
+      .sidebar_post { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; }
+      .sidebar_post:last-child { margin-bottom: 0; }
+      .sidebar_post_img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; border: 1px solid #2A1200; flex-shrink: 0; }
+      .sidebar_post_title { font-size: 13px; color: #C9B89A; line-height: 1.5; margin-bottom: 4px; }
+      .sidebar_post_date { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #5A3520; }
+      .tag_cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+      .tag_pill { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #C9B89A; border: 1px solid #2A1200; padding: 6px 14px; border-radius: 2px; text-decoration: none; transition: all 0.2s; }
+      .tag_pill:hover { border-color: #D4935A; color: #D4935A; }
+
+      /* FOOTER */
+      .footer_section { background: #0D0500; padding: 48px 0; border-top: 1px solid #2A1200; }
+      .footer_social_icon ul { list-style: none; display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; padding: 0; }
+      .footer_social_icon ul li a { width: 36px; height: 36px; border: 1px solid #2A1200; border-radius: 2px; display: flex; align-items: center; justify-content: center; color: #A08060; text-decoration: none; transition: all 0.2s; }
+      .footer_social_icon ul li a:hover { border-color: #D4935A; color: #D4935A; }
+      .location_text ul { list-style: none; display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 28px; padding: 0; }
+      .location_text ul li a { color: #7A6050; font-size: 13px; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+      .location_text ul li a i { color: #D4935A; }
+      .location_text ul li a:hover { color: #C9B89A; }
+      .form-group { position: relative; max-width: 360px; margin: 0 auto; }
+      .update_mail { background: #0D0500; border: 1px solid #2A1200; border-radius: 2px; color: #C9B89A; font-size: 13px; padding: 12px 56px 12px 16px; font-family: 'Poppins', sans-serif; outline: none; width: 100%; resize: none; height: 46px; overflow: hidden; }
+      .update_mail::placeholder { color: #5A3520; }
+      .subscribe_bt { position: absolute; right: 0; top: 0; height: 100%; }
+      .subscribe_bt a { display: flex; align-items: center; justify-content: center; background: #D4935A; color: #0D0500; width: 44px; height: 100%; border-radius: 0 2px 2px 0; text-decoration: none; }
+      .subscribe_bt a:hover { background: #C07A45; }
+
+      .copyright_section { background: #080200; padding: 16px 0; }
+      .copyright_text { text-align: center; font-size: 11px; color: #ffffff; letter-spacing: 1px; margin: 0; }
+      .copyright_text a { color: #D4935A; text-decoration: none; }
+      .copyright_text a:hover { color: #C9B89A; }
+
+      @media (max-width: 768px) {
+         .page_title { font-size: 30px; }
+         .featured_post_img { height: 260px; }
+         .featured_title { font-size: 20px; }
+         .article_hero { height: 220px; }
+      }
+   </style>
+</head>
+<body>
+
+   <!-- HEADER -->
+   <div class="header_section">
+      <div class="container">
+         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Mazagran Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                  <li class="nav-item"><a class="nav-link" href="coffees.html">Coffees</a></li>
+                  <li class="nav-item"><a class="nav-link" href="shop.html">Menu</a></li>
+                  <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                  <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+               </ul>
+            </div>
+         </nav>
+      </div>
+   </div>
+   <!-- HEADER END -->
+
+   <!-- PAGE HERO -->
+   <div class="page_header">
+      <div class="container">
+         <p class="page_label">Mazagran Cafe</p>
+         <h1 class="page_title">The Roastery Journal</h1>
+         <p class="page_sub">Stories, history, and craft from the people behind Dunedin's finest cup.</p>
+      </div>
+   </div>
+
+   <!-- BLOG ARTICLES + SIDEBAR -->
+   <div class="blog_grid_section">
+      <div class="container">
+         <div class="row">
+
+            <!-- MAIN COLUMN -->
+            <div class="col-lg-8">
+
+               <!-- ============================
+                    ARTICLE 1 — IN-HOUSE ROASTING (Featured)
+                    ============================ -->
+               <div class="article_section" id="roasting" style="border-top: none; padding-top: 0;">
+                  <div class="article_wrapper">
+                     <span class="article_tag">Roastery</span>
+                     <h2 class="article_title">The Art of In-House Roasting</h2>
+                     <p class="article_meta">By the Mazagran Team &nbsp;·&nbsp; Latest Update</p>
+                     <img src="images/blog-img1.jpg" alt="In-House Roasting at Mazagran" class="article_hero">
+                     <div class="article_body">
+                        <p>There is a moment — about twelve minutes into a roast — when the first crack sounds. The bean, swelling with steam and pressure, finally lets go. It is a sound that every passionate roaster comes to know deeply, the signal that something raw and green has crossed into territory where flavour truly begins to emerge. At Mazagran, we live for that moment.</p>
+                        <p>We made the decision to roast our own coffee on-site because we believed, fundamentally, that the freshest possible bean is the only way to deliver an honest cup. Most cafes receive pre-roasted coffee from external suppliers, packaged days or even weeks before it reaches the grinder. By the time it is brewed, the volatile aromatic compounds that give great coffee its complexity have already begun to dissipate. We wanted none of that.</p>
+                        <h4>From Green Bean to Golden Cup</h4>
+                        <p>Our process begins long before any heat is applied. We source raw green beans from carefully vetted importers who work directly with farms across Ethiopia, Colombia, Guatemala, and Sumatra. We look for beans grown at altitude, with the kind of density that holds flavour through the roasting process. When the sacks arrive at Moray Place, we cup each new lot — tasting them as light roasts first — to understand the potential in every batch.</p>
+                        <p>The roast profile itself is built slowly over multiple trial batches. We adjust inlet temperature, drum speed, and airflow to coax each variety toward its best expression. A washed Ethiopian might want a fast, lighter roast to preserve its floral, citrus-bright character. A natural-processed Sumatran needs time — a slower, more developed roast to bring out its earthy depth and dark chocolate finish.</p>
+                        <h4>Why It Matters for You</h4>
+                        <p>Coffee is at its peak flavour window between four and twenty-one days off roast. By roasting in-house, we can guarantee your cup falls squarely within that window, every single day. The result is a clarity of flavour that pre-packaged coffee simply cannot match — crema that is dense and rust-coloured, aromatics that lift off the cup before you even take a sip, and a finish that lingers long after the last drop.</p>
+                        <p>Next time you are in, ask your barista what is on the grinder that day. We love talking about it.</p>
+                     </div>
+                  </div>
+               </div>
+
+               <hr class="article_divider">
+
+               <!-- ============================
+                    ARTICLE 2 — FRESH SLICES & TARTS
+                    ============================ -->
+               <div class="article_section" id="pastry">
+                  <div class="article_wrapper">
+                     <span class="article_tag">Pastry Cabinet</span>
+                     <h2 class="article_title">Fresh Slices &amp; Tarts — Why the Cabinet Matters</h2>
+                     <p class="article_meta">By the Mazagran Team &nbsp;·&nbsp; Cafe Notes</p>
+                     <img src="images/blog-img2.png" alt="Fresh Slices and Tarts at Mazagran" class="article_hero">
+                     <div class="article_body">
+                        <p>A great espresso bar is not defined by coffee alone. The moment a customer walks through the door and spots the cabinet — its shelves lined with glossy tarts, dense chocolate slices, and soft afternoon cakes — they understand what kind of place this is. One that cares about every part of the experience.</p>
+                        <p>Our pastry selection rotates daily, guided by what is seasonal, what pairs best with our current roast profile, and frankly, what our team is most excited about baking. We believe the cabinet should feel alive — not static. A customer who visits on Monday and again on Thursday should find something new to discover each time.</p>
+                        <h4>The Perfect Pairing Philosophy</h4>
+                        <p>We think carefully about how food interacts with coffee. A bitter, dark roast calls for the sweetness of a caramel slice or a passionfruit tart to create balance. A bright, acidic Ethiopian single origin finds a beautiful counterpart in something buttery and neutral — a shortbread or a plain almond cake — that lets the fruit notes in the coffee do the talking.</p>
+                        <p>Our moist chocolate fudge cake is perennially the most-ordered item alongside a flat white, and with good reason. The fat in the ganache coats the palate in a way that makes the milk sweetness in the coffee more pronounced. It is a combination that borders on scientific.</p>
+                        <h4>Made Fresh, Daily</h4>
+                        <p>Nothing in our cabinet is more than a day old. We take pride in that. When the trays empty, they empty — and the next morning, fresh product takes its place. If you have a favourite, we always recommend coming in before noon. The early bird, as they say, gets the last custard tart.</p>
+                     </div>
+                  </div>
+               </div>
+
+               <hr class="article_divider">
+
+               <!-- ============================
+                    ARTICLE 3 — HISTORY OF COFFEE
+                    ============================ -->
+               <div class="article_section" id="history">
+                  <div class="article_wrapper">
+                     <span class="article_tag">Coffee History</span>
+                     <h2 class="article_title">From Goats in Ethiopia to Flat Whites in Dunedin — The Remarkable History of Coffee</h2>
+                     <p class="article_meta">By the Mazagran Team &nbsp;·&nbsp; Deep Dive</p>
+                     <img src="images/blog-img1.jpg" alt="History of Coffee" class="article_hero" style="object-position: center 30%;">
+                     <div class="article_body">
+                        <p>The story most often told about coffee's discovery begins in the Ethiopian highlands, sometime around the ninth century. A goat herder named Kaldi, so the legend goes, noticed his animals behaving with unusual energy after eating red berries from a particular shrub. He brought the berries to a local monastery, where monks brewed them into a drink and found that it helped them stay awake through long evening prayers. Whether entirely true or not, the story captures something essential: coffee's first role was not as a luxury, but as an aid to wakefulness and spiritual practice.</p>
+                        <h4>Arabia and the Birthplace of the Cafe</h4>
+                        <p>By the fifteenth century, coffee had reached the Arabian Peninsula, where it was cultivated seriously for the first time in Yemen. The port city of Mocha — a name coffee drinkers still use today — became the world's first great coffee trading hub. Across the Arab world, establishments called qahveh khaneh emerged as places where people gathered to drink coffee, play chess, share news, and engage in public debate. These were the world's first cafes, and they became so influential in community life that they were nicknamed "schools of the wise."</p>
+                        <h4>Europe's Coffee Revolution</h4>
+                        <p>Coffee arrived in Europe in the seventeenth century, and its reception was immediate and transformative. The beverage swept through cities as an alternative to the weak, often contaminated water and the ale that most people drank throughout the day. In London alone, over two thousand coffee houses were operating by 1700. Lloyd's of London — still one of the world's most famous insurance markets — began as a coffee house where merchants and sailors gathered. Edward Lloyd served coffee and kept records of ships and their voyages.</p>
+                        <p>Coffee quite literally changed how people thought, by replacing an intoxicant with a stimulant and shifting the default state of urban society toward sobriety and focused productivity. The Enlightenment, many historians argue, was brewed in coffee houses.</p>
+                        <h4>Espresso and the Modern Cafe</h4>
+                        <p>The espresso machine arrived in early twentieth-century Italy, and with it came an entirely new culture of coffee consumption — fast, concentrated, social, and standing at the bar. The flat white, that quintessentially antipodean invention (debated hotly between Australia and New Zealand), emerged in the 1980s as a smaller, stronger, microfoam-rich alternative to the latte. New Zealand's coffee culture today is among the most sophisticated in the world, a heritage we honour every single day here at 36 Moray Place.</p>
+                     </div>
+                  </div>
+               </div>
+
+               <hr class="article_divider">
+
+               <!-- ============================
+                    ARTICLE 4 — CAFE CULTURE
+                    ============================ -->
+               <div class="article_section" id="culture">
+                  <div class="article_wrapper">
+                     <span class="article_tag">Cafe Culture</span>
+                     <h2 class="article_title">What Makes a Great Cafe? — The Culture Behind the Counter</h2>
+                     <p class="article_meta">By the Mazagran Team &nbsp;·&nbsp; Reflections</p>
+                     <img src="images/blog-img2.png" alt="Cafe Culture" class="article_hero">
+                     <div class="article_body">
+                        <p>A great cafe is, at its core, a great place. This sounds obvious but it is worth saying plainly: the coffee is important, yes — but the sum total of the experience is what brings people back. The regulars who come in every morning are not just buying caffeine. They are buying a ritual, a few minutes of warmth and familiarity before the day begins in earnest.</p>
+                        <p>This is something we think about deeply at Mazagran. When we designed the space at 36 Moray Place, we thought about how light falls in the morning and how the atmosphere should shift through the day. A good cafe feels different at 7:30am than it does at 2pm — more urgent, more purposeful in the early hours, and then slower, more contemplative as the afternoon stretches out.</p>
+                        <h4>The Barista as Host</h4>
+                        <p>The barista at the machine is not simply an operator of equipment. They are the host of the experience. The best baristas we have worked with share certain qualities: curiosity about the product, genuine warmth with customers, the ability to be consistent under pressure, and a kind of artistic pride in the work that shows in every cup they send across the counter.</p>
+                        <p>We invest in training not because we want identical robots behind the bar but because we want confident, knowledgeable people who can have real conversations about coffee — about why the single origin tastes the way it does today, about what milk temperature does to sweetness perception, about why your flat white might taste slightly different on a humid morning. Those conversations are what transform a transaction into a relationship.</p>
+                        <h4>Community as the Menu</h4>
+                        <p>The cafe has always been a community institution. The original qahveh khaneh in Cairo and Istanbul were places where ideas were exchanged as freely as the coffee. We see our role in Dunedin the same way — as a place that belongs to the neighbourhood, where regulars become familiar faces, where conversations happen between strangers who share nothing but a love of a well-made cup. That is something no algorithm can replicate, and something we guard fiercely.</p>
+                     </div>
+                  </div>
+               </div>
+
+               <hr class="article_divider">
+
+               <!-- ============================
+                    ARTICLE 5 — SINGLE ORIGIN JOURNEY
+                    ============================ -->
+               <div class="article_section" id="singleorigin">
+                  <div class="article_wrapper">
+                     <span class="article_tag">Single Origin</span>
+                     <h2 class="article_title">A Journey into Single Origin Coffee — Terroir, Traceability, and Taste</h2>
+                     <p class="article_meta">By the Mazagran Team &nbsp;·&nbsp; The Craft</p>
+                     <img src="images/blog-img1.jpg" alt="Single Origin Coffee Journey" class="article_hero">
+                     <div class="article_body">
+                        <p>Wine lovers have long understood that the same grape variety, grown ten kilometres apart on different soil, will produce wines that taste nothing alike. Coffee is governed by the same principle. The elevation, rainfall, soil composition, and harvesting practices at a single farm will shape the flavour of the bean as profoundly as any decision made during roasting or brewing. This is what coffee professionals mean by terroir, a French wine term that the specialty coffee world has adopted with good reason.</p>
+                        <h4>What "Single Origin" Actually Means</h4>
+                        <p>The term single origin can mean different things depending on how it is used. At its broadest, it simply means coffee from one country — Ethiopian, Colombian, Guatemalan. More precise definitions narrow it to a single region, a single cooperative, or even a single farm or micro-lot. The more specific the origin, the more traceable and distinctive the flavour — and the more the farmer's work is recognised and valued.</p>
+                        <p>At Mazagran, we rotate our single-origin offerings based on what is arriving fresh and what is most interesting. We try to offer a variety of origins so customers can, over time, develop a genuine understanding of how geography shapes flavour.</p>
+                        <h4>Flavour Profiles to Watch For</h4>
+                        <ul>
+                           <li><strong>Ethiopia (Washed):</strong> Floral jasmine notes, bergamot, stone fruit — bright and tea-like.</li>
+                           <li><strong>Ethiopia (Natural):</strong> Blueberry, dark cherry, wine — lush and fruit-forward.</li>
+                           <li><strong>Colombia (Huila):</strong> Caramel, red apple, milk chocolate — balanced and approachable.</li>
+                           <li><strong>Guatemala (Antigua):</strong> Brown sugar, almond, cocoa — structured and classic.</li>
+                           <li><strong>Sumatra (Mandheling):</strong> Dark earth, cedar, dark chocolate — bold and full-bodied.</li>
+                        </ul>
+                        <h4>How to Best Experience Them</h4>
+                        <p>We serve our single origins as espresso or as a long black to let the origin character shine without the softening influence of milk. If you are curious but unsure, ask a barista. We are always happy to pull a shot and talk you through what you are tasting — the acidity, the body, the sweetness, the finish. Understanding single origin coffee is not about pretension. It is about paying attention to something remarkable that has travelled a long way to reach your cup.</p>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+            <!-- END MAIN COLUMN -->
+
+            <!-- SIDEBAR -->
+            <div class="col-lg-4">
+               <div style="position: sticky; top: 120px; padding-top: 0;">
+
+                  <!-- Recent Posts -->
+                  <div class="sidebar_box">
+                     <h3 class="sidebar_title">Recent Posts</h3>
+                     <div class="sidebar_post">
+                        <img src="images/blog-img1.jpg" alt="In-House Roasting" class="sidebar_post_img">
+                        <div>
+                           <p class="sidebar_post_title">The Art of In-House Roasting</p>
+                           <p class="sidebar_post_date">Roastery</p>
+                        </div>
+                     </div>
+                     <div class="sidebar_post">
+                        <img src="images/blog-img2.png" alt="Fresh Slices" class="sidebar_post_img">
+                        <div>
+                           <p class="sidebar_post_title">Fresh Slices &amp; Tarts — Why the Cabinet Matters</p>
+                           <p class="sidebar_post_date">Pastry Cabinet</p>
+                        </div>
+                     </div>
+                     <div class="sidebar_post">
+                        <img src="images/blog-img1.jpg" alt="Coffee History" class="sidebar_post_img">
+                        <div>
+                           <p class="sidebar_post_title">The Remarkable History of Coffee</p>
+                           <p class="sidebar_post_date">Coffee History</p>
+                        </div>
+                     </div>
+                     <div class="sidebar_post">
+                        <img src="images/blog-img2.png" alt="Cafe Culture" class="sidebar_post_img">
+                        <div>
+                           <p class="sidebar_post_title">What Makes a Great Cafe?</p>
+                           <p class="sidebar_post_date">Cafe Culture</p>
+                        </div>
+                     </div>
+                     <div class="sidebar_post">
+                        <img src="images/blog-img1.jpg" alt="Single Origin" class="sidebar_post_img">
+                        <div>
+                           <p class="sidebar_post_title">A Journey into Single Origin Coffee</p>
+                           <p class="sidebar_post_date">Single Origin</p>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Tags -->
+                  <div class="sidebar_box">
+                     <h3 class="sidebar_title">Topics</h3>
+                     <div class="tag_cloud">
+                        <a href="#roasting" class="tag_pill">Roasting</a>
+                        <a href="#pastry" class="tag_pill">Pastry</a>
+                        <a href="#history" class="tag_pill">History</a>
+                        <a href="#culture" class="tag_pill">Cafe Culture</a>
+                        <a href="#singleorigin" class="tag_pill">Single Origin</a>
+                        <a href="coffees.html" class="tag_pill">Espresso</a>
+                        <a href="shop.html" class="tag_pill">Menu</a>
+                        <a href="contact.html" class="tag_pill">Visit Us</a>
+                     </div>
+                  </div>
+
+                  <!-- Visit CTA -->
+                  <div class="sidebar_box" style="text-align: center;">
+                     <p style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #D4935A; margin-bottom: 10px;">Come In</p>
+                     <p style="font-size: 16px; font-weight: 500; color: #F5ECD7; margin-bottom: 10px;">36 Moray Place, Dunedin</p>
+                     <p style="font-size: 13px; color: #7A6050; line-height: 1.8; margin-bottom: 20px;">Monday – Friday: 7:30am – 4:00pm<br>Saturday: 8:00am – 3:00pm</p>
+                     <a href="contact.html" style="display: inline-block; background: #D4935A; color: #0D0500; padding: 11px 28px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; border-radius: 2px; font-weight: 600;">Get Directions</a>
+                  </div>
+
+               </div>
+            </div>
+            <!-- END SIDEBAR -->
+
+         </div>
+      </div>
+   </div>
+
+   <!-- FOOTER -->
+   <div class="footer_section layout_padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="footer_social_icon">
+                  <ul>
+                     <li><a href="https://www.facebook.com/mazagrancafe/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                     <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                     <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                  </ul>
+               </div>
+               <div class="location_text">
+                  <ul>
+                     <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span>36 Moray Place, Dunedin, New Zealand, 9016</span></a></li>
+                     <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span>hello@mazagran.co.nz</span></a></li>
+                  </ul>
+               </div>
+               <div class="form-group">
+                  <textarea class="update_mail" placeholder="Join our newsletter" rows="1" name="Your Email"></textarea>
+                  <div class="subscribe_bt"><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- COPYRIGHT -->
+   <div class="copyright_section">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <p class="copyright_text">2026 All Rights Reserved. Mazagran Cafe Espresso Bar. &nbsp;|&nbsp; Designed by <a href="https://axyntra.lk/" target="_blank" rel="noopener">Axyntra — Official Digital Agency Sri Lanka</a></p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <script src="js/jquery.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.0.0.min.js"></script>
+   <script src="js/plugin.js"></script>
+   <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+   <script src="js/custom.js"></script>
+</body>
+</html>
